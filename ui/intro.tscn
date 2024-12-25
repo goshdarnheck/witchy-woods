@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://kya0pruxts2a"]
+
+[ext_resource type="Script" path="res://ui/intro.gd" id="1_0oeik"]
+
+[node name="INTRO" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0oeik")
+
+[node name="NEWGAME" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "New Game"
+
+[connection signal="pressed" from="NEWGAME" to="." method="_on_newgame_pressed"]

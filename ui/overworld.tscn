@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi1e1tvcwrp7k"]
+
+[ext_resource type="Script" path="res://ui/overworld.gd" id="1_bop8l"]
+
+[node name="Overworld" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_bop8l")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

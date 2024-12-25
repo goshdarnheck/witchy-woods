@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnxmxfl4y6pj3"]
+
+[ext_resource type="Script" path="res://ui/creator.gd" id="1_46ron"]
+[ext_resource type="Texture2D" uid="uid://dpxv8bj7iu7du" path="res://textures/buttons/fire-100.png" id="2_hylr4"]
+[ext_resource type="Texture2D" uid="uid://igp50p8h2ln7" path="res://textures/buttons/water-100.png" id="3_hn7g3"]
+[ext_resource type="Texture2D" uid="uid://b3ddg5xyw6qnr" path="res://textures/fire-player.png" id="4_sycal"]
+
+[node name="Creator" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_46ron")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 10.0
+offset_right = 284.0
+offset_bottom = 33.0
+text = "WHO DARES ENTER THIS WORLD?
+"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 522.0
+offset_right = 718.0
+offset_bottom = 623.0
+text = "AWAKEN"
+alignment = 2
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Name" type="TextEdit" parent="Control/Control"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 352.0
+offset_right = 267.0
+offset_bottom = 389.0
+text = "Fring"
+
+[node name="Label2" type="Label" parent="Control/Control"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 321.0
+offset_right = 77.0
+offset_bottom = 344.0
+text = "Name"
+
+[node name="Control2" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/Control2"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 53.0
+offset_right = 80.0
+offset_bottom = 76.0
+text = "Study
+"
+
+[node name="Button" type="TextureButton" parent="Control/Control2"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 96.0
+offset_right = 164.0
+offset_bottom = 296.0
+texture_normal = ExtResource("2_hylr4")
+
+[node name="Button2" type="TextureButton" parent="Control/Control2"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 97.0
+offset_right = 334.0
+offset_bottom = 297.0
+texture_normal = ExtResource("3_hn7g3")
+
+[node name="Control2" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 517.0
+offset_top = 165.0
+offset_right = 718.0
+offset_bottom = 366.0
+texture = ExtResource("4_sycal")
+
+[connection signal="pressed" from="Button" to="." method="_on_awaken_button_pressed"]
