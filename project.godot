@@ -10,14 +10,19 @@ config_version=5
 
 [application]
 
-config/name="Ww"
+config/name="Witchywoods"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/image="res://textures/fire-player.png"
 
 [autoload]
 
 Events="*res://services/events.gd"
 Manager="*res://manager.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [rendering]
 
