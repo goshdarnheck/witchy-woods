@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnxmxfl4y6pj3"]
+[gd_scene load_steps=6 format=3 uid="uid://bnxmxfl4y6pj3"]
 
 [ext_resource type="Script" path="res://ui/creator.gd" id="1_46ron"]
 [ext_resource type="Texture2D" uid="uid://5cyhcx1fn0yq" path="res://textures/fire.png" id="2_ogyuy"]
 [ext_resource type="Texture2D" uid="uid://drbdrp6ltfa2t" path="res://textures/water.png" id="3_c2isd"]
+[ext_resource type="Texture2D" uid="uid://dj44wo7nvsy5s" path="res://textures/plant.png" id="4_sm54u"]
 [ext_resource type="Texture2D" uid="uid://b3ddg5xyw6qnr" path="res://textures/fire-player.png" id="4_sycal"]
 
 [node name="Creator" type="Control"]
@@ -46,9 +47,9 @@ text = "Study
 texture_filter = 1
 layout_mode = 0
 offset_left = 21.0
-offset_top = 107.0
+offset_top = 100.0
 offset_right = 37.0
-offset_bottom = 123.0
+offset_bottom = 116.0
 scale = Vector2(10, 10)
 texture_normal = ExtResource("2_ogyuy")
 stretch_mode = 4
@@ -56,13 +57,23 @@ stretch_mode = 4
 [node name="Water" type="TextureButton" parent="Study"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 218.0
-offset_top = 114.0
-offset_right = 234.0
-offset_bottom = 130.0
+offset_left = 202.0
+offset_top = 100.0
+offset_right = 218.0
+offset_bottom = 116.0
 scale = Vector2(10, 10)
 texture_normal = ExtResource("3_c2isd")
 stretch_mode = 4
+
+[node name="Plant" type="TextureButton" parent="Study"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 379.0
+offset_top = 100.0
+offset_right = 395.0
+offset_bottom = 116.0
+scale = Vector2(10, 10)
+texture_normal = ExtResource("4_sm54u")
 
 [node name="Name" type="Control" parent="."]
 anchors_preset = 0
@@ -88,13 +99,14 @@ text = "Name"
 [node name="Avatar" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 539.0
-offset_top = 79.0
-offset_right = 571.0
-offset_bottom = 111.0
+offset_left = 631.0
+offset_top = 126.0
+offset_right = 663.0
+offset_bottom = 158.0
 scale = Vector2(10, 10)
 texture = ExtResource("4_sycal")
 
 [connection signal="pressed" from="Button" to="." method="_on_awaken_button_pressed"]
 [connection signal="pressed" from="Study/Fire" to="." method="_on_fire_pressed"]
 [connection signal="pressed" from="Study/Water" to="." method="_on_water_pressed"]
+[connection signal="pressed" from="Study/Plant" to="." method="_on_plant_pressed"]

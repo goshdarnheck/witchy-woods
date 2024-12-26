@@ -24,3 +24,8 @@ func _on_fire_pressed():
 func _on_water_pressed():
 	studySelected = "water"
 	$Avatar.texture = load("res://textures/" + studySelected + "-player.png");
+
+
+func _on_plant_pressed():
+	studySelected = "plant"
+	$Avatar.texture = load("res://textures/" + studySelected + "-player.png");

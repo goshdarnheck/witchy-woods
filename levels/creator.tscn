@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://bfrer21nd1clv"]
+[gd_scene load_steps=2 format=3 uid="uid://bfrer21nd1clv"]
+
+[sub_resource type="GDScript" id="GDScript_hl6ot"]
+script/source = "extends Node2D
+
+var no_player = true;
+
+func _ready():
+	pass
+
+func _process(delta):
+	pass
+"
 
 [node name="Character-creator" type="Node2D"]
+script = SubResource("GDScript_hl6ot")
