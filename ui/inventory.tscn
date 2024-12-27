@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c4kq6w0a3clwt"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "hat"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 67.0
+offset_right = 39.0
+offset_bottom = 90.0
+text = "cloak"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 146.0
+offset_right = 43.0
+offset_bottom = 169.0
+text = "boots
+"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 8.0
+offset_right = 545.0
+offset_bottom = 31.0
+text = "wand"
