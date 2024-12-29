@@ -7,10 +7,18 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_0oeik")
 
-[node name="NEWGAME" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 96.0
+offset_bottom = 66.0
+
+[node name="NEWGAME" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 text = "New Game"
 
-[connection signal="pressed" from="NEWGAME" to="." method="_on_newgame_pressed"]
+[node name="LOADGAME" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Load Game"
+
+[connection signal="pressed" from="VBoxContainer/NEWGAME" to="." method="_on_newgame_pressed"]
+[connection signal="pressed" from="VBoxContainer/LOADGAME" to="." method="_on_loadgame_pressed"]

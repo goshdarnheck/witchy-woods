@@ -14,7 +14,9 @@ func _on_awaken_button_pressed():
 		"study": studySelected
 	}
 
-	Events.broadcast("AWAKEN", character_choices);
+	#Events.broadcast("AWAKEN", character_choices);
+	Manager.set_character(character_choices);
+	Manager.loadStage("beginning");
 
 
 func _on_fire_pressed():

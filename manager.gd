@@ -12,31 +12,18 @@ var World = null;
 var UI = null;
 var Overlay = null;
 
-func set_character(data):
-	character = data;
-
-func save():
-	pass;
-	
-func getSaves():
-	pass;
-
-func loadSave():
-	pass;
-
 func _ready():
 	World = get_tree().get_root().get_node("Main/World");
 	UI = get_tree().get_root().get_node("Main/UI");
 	Overlay = get_tree().get_root().get_node("Main/Overlay");
-	Events.subscribe("NEW_GAME", self, "_eventHandler");
-	Events.subscribe("AWAKEN", self, "_eventHandler");
+	#Events.subscribe("AWAKEN", self, "_eventHandler");
 	_load_UI("intro");
 
 func _input(event):
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_A:
+		if event.pressed and event.keycode == KEY_TAB:
 			if overlay == "inventory":
 				_unpause();
 				_clear_Overlay();
@@ -55,20 +42,23 @@ func _unpause():
 func _process(delta):
 	pass;
 
+func loadStage(stageName):
+	if stageName == "creator":
+		_load_level("creator");
+		_load_UI("creator");
+	elif stageName == "load":
+		_load_level("load");
+		_load_UI("load");
+	else:
+		_load_level(stageName);
+		_load_UI("overworld");
+
 func _eventHandler(event, data):
-	print("main event handler, pass this to the state machine!", event, data);
-	
-	match (event):
-		"NEW_GAME":
-			_load_level("creator");
-			_load_UI("creator");
-		"AWAKEN":
-			Manager.set_character(data);
-			_load_level("beginning");
-			_load_UI("overworld");
+	print("manager event handler", event, data);
 
 func _load_level(name):
 	var scene = load("res://levels/" + name + ".tscn");
+	print("res://levels/" + name + ".tscn")
 	var instance = scene.instantiate();
 
 	if (!"no_player" in instance || !instance.no_player):
@@ -107,3 +97,15 @@ func _is_Overlay(name):
 	if (Overlay.get_child_count() > 0):
 		print(Overlay.get_child(0))
 		return Overlay.get_child(0).name == name;
+
+func set_character(data):
+	character = data;
+
+func save():
+	pass;
+	
+func getSaves():
+	pass;
+
+func loadSave():
+	pass;

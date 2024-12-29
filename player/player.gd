@@ -10,8 +10,8 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
-	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_direction = Input.get_vector("left", "right", "up", "down").normalized()
 	
 	if (!Manager.paused):
-		velocity = direction * speed
+		velocity = input_direction * speed
 		move_and_slide()
