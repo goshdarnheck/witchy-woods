@@ -19,19 +19,26 @@ func _ready():
 	#Events.subscribe("AWAKEN", self, "_eventHandler");
 	_load_UI("intro");
 
+func isSpeechbubble():
+	return _is_Overlay("Speechbubble")
+
 func _input(event):
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
+		
+	var actionKey = Input.is_action_just_pressed("action");
+	
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_TAB:
-			if overlay == "inventory":
-				_unpause();
-				_clear_Overlay();
-				overlay = "none"
-			else:
-				overlay = "inventory";
-				_pause();
-				_load_Overlay("inventory");
+		if event.pressed:
+			if event.keycode == KEY_TAB:
+				if overlay == "inventory":
+					_unpause();
+					_clear_Overlay();
+					overlay = "none"
+				else:
+					overlay = "inventory";
+					_pause();
+					_load_Overlay("inventory");
 
 func _pause():
 	paused = true;
@@ -52,6 +59,16 @@ func loadStage(stageName):
 	else:
 		_load_level(stageName);
 		_load_UI("overworld");
+
+func speech_bubble(data):
+	_pause();
+	if !isSpeechbubble():
+		_load_Overlay("Speechbubble");
+	Overlay.get_child(0).setContent(data);
+
+func speech_bubble_close():
+	_unpause();
+	_clear_Overlay();
 
 func _eventHandler(event, data):
 	print("manager event handler", event, data);
