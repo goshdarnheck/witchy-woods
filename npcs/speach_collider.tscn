@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://djgmry63tdq7d"]
+
+[ext_resource type="Script" path="res://npcs/SpeachCollider.gd" id="1_r8bdm"]
+[ext_resource type="Texture2D" uid="uid://ciyd8rgx65a4r" path="res://textures/speech-bubble.png" id="2_d2voa"]
+
+[node name="SpeachCollider" type="Area2D"]
+script = ExtResource("1_r8bdm")
+
+[node name="SpeechBubble" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(32, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("2_d2voa")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

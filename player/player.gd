@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-var speed = 400  # speed in pixels/sec
+var speed = 400;  # speed in pixels/sec
+var player = true;
 
 func _ready():
 	$Sprite.texture = load("res://textures/" + Manager.character.study + "-player.png");

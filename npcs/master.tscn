@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://do7brpdykw8yl"]
+
+[ext_resource type="Texture2D" uid="uid://lq7q5kvudnop" path="res://textures/master.png" id="1_g76w8"]
+[ext_resource type="Script" path="res://npcs/master.gd" id="1_ylybi"]
+[ext_resource type="PackedScene" uid="uid://djgmry63tdq7d" path="res://npcs/speach_collider.tscn" id="2_2conu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvlh2"]
+radius = 17.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w87wm"]
+
+[node name="Master" type="CharacterBody2D"]
+script = ExtResource("1_ylybi")
+
+[node name="Master" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_g76w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_mvlh2")
+
+[node name="SpeachCollider" parent="." instance=ExtResource("2_2conu")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SpeachCollider"]
+position = Vector2(0, 33)
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_w87wm")
+
+[connection signal="body_entered" from="SpeachCollider" to="." method="_on_speach_collider_body_entered"]
