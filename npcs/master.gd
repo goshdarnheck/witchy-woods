@@ -1,17 +1,23 @@
 extends CharacterBody2D
 
-var has_convo = true;
+var displayName = "Old Magician";
 var current = "takethese";
 var convo = {
 	"takethese": {
+		"name": displayName,
+		"image": "master.png",
 		"text": "Take these...",
 		"next": "why"
 	},
 	"why": {
+		"name": Manager.character.name,
+		"image": "plant-player.png",
 		"text": "huh? why?",
 		"next": "dunno"
 	},
 	"dunno": {
+		"image": "master.png",
+		"name": displayName,
 		"text": "I dunno lol"
 	}
 }
@@ -30,12 +36,11 @@ func get_next_speech():
 	else:
 		return false;
 
-func _ready():
-	pass;
-
-func _process(delta):
-	
-	pass;
-
-func _physics_process(delta):
-	pass;
+#func _ready():
+	#pass;
+#
+#func _process(delta):
+	#pass;
+#
+#func _physics_process(delta):
+	#pass;

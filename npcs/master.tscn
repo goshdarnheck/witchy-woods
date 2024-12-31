@@ -29,5 +29,3 @@ shape = SubResource("CircleShape2D_mvlh2")
 position = Vector2(0, 33)
 scale = Vector2(6, 6)
 shape = SubResource("CircleShape2D_w87wm")
-
-[connection signal="body_entered" from="SpeachCollider" to="." method="_on_speach_collider_body_entered"]

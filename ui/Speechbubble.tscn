@@ -1,25 +1,58 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5uns4stf4wo6"]
+[gd_scene load_steps=3 format=3 uid="uid://c5uns4stf4wo6"]
 
 [ext_resource type="Script" path="res://ui/Speechbubble.gd" id="1_3gic0"]
+[ext_resource type="Texture2D" uid="uid://dcaps0fabgh5d" path="res://textures/plant-player.png" id="2_yo4te"]
 
 [node name="Speechbubble" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_3gic0")
 
-[node name="Stuff" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="Name" type="Label" parent="Stuff"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.0784314, 0.12549, 0.215686, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "[name]"
 
-[node name="Text" type="Label" parent="Stuff"]
+[node name="Stuff" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Image" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/Stuff"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_yo4te")
+flip_h = true
+
+[node name="Text" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/Stuff"]
 layout_mode = 2
 text = "..."
-
-[node name="Button" type="Button" parent="Stuff"]
-layout_mode = 2
-text = "*NEXT*"
