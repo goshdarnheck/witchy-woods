@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://djgmry63tdq7d" path="res://npcs/speach_collider.tscn" id="2_or0h0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4t14"]
-radius = 13.0
-height = 54.0
+radius = 7.0
+height = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_khla3"]
-radius = 63.0079
+radius = 35.0143
 
 [node name="Rock" type="Area2D"]
 position = Vector2(0, -16)
@@ -22,11 +22,11 @@ shape = SubResource("CapsuleShape2D_l4t14")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
+position = Vector2(-1, 8)
 texture = ExtResource("1_p457g")
 
 [node name="SpeachCollider" parent="." instance=ExtResource("2_or0h0")]
+position = Vector2(0, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpeachCollider"]
-position = Vector2(0, 14)
 shape = SubResource("CircleShape2D_khla3")

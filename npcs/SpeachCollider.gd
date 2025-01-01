@@ -6,7 +6,8 @@ var speaking = false;
 
 func _ready():
 	parent = get_parent();
-	parent.get_current_speech()
+	parent.get_current_speech();
+	$SpeechBubble.visible = false;
 
 func _process(delta):
 	var speakKey = Input.is_action_just_pressed("speak");

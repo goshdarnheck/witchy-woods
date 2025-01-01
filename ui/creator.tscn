@@ -22,12 +22,11 @@ text = "WHO DARES ENTER THIS WORLD?
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 446.0
-offset_top = 522.0
-offset_right = 718.0
-offset_bottom = 623.0
+offset_left = 23.0
+offset_top = 280.0
+offset_right = 270.0
+offset_bottom = 342.0
 text = "AWAKEN"
-alignment = 2
 
 [node name="Study" type="Control" parent="."]
 anchors_preset = 0
@@ -46,33 +45,33 @@ text = "Study
 [node name="Fire" type="TextureButton" parent="Study"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 21.0
-offset_top = 100.0
-offset_right = 37.0
-offset_bottom = 116.0
-scale = Vector2(10, 10)
+offset_left = 22.0
+offset_top = 84.0
+offset_right = 38.0
+offset_bottom = 100.0
+scale = Vector2(5, 5)
 texture_normal = ExtResource("2_ogyuy")
 stretch_mode = 4
 
 [node name="Water" type="TextureButton" parent="Study"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 202.0
-offset_top = 100.0
-offset_right = 218.0
-offset_bottom = 116.0
-scale = Vector2(10, 10)
+offset_left = 114.0
+offset_top = 83.0
+offset_right = 130.0
+offset_bottom = 99.0
+scale = Vector2(5, 5)
 texture_normal = ExtResource("3_c2isd")
 stretch_mode = 4
 
 [node name="Plant" type="TextureButton" parent="Study"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 379.0
-offset_top = 100.0
-offset_right = 395.0
-offset_bottom = 116.0
-scale = Vector2(10, 10)
+offset_left = 203.0
+offset_top = 85.0
+offset_right = 219.0
+offset_bottom = 101.0
+scale = Vector2(5, 5)
 texture_normal = ExtResource("4_sm54u")
 
 [node name="Name" type="Control" parent="."]
@@ -82,27 +81,27 @@ offset_bottom = 40.0
 
 [node name="Input" type="TextEdit" parent="Name"]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 352.0
-offset_right = 267.0
-offset_bottom = 389.0
+offset_left = 33.0
+offset_top = 223.0
+offset_right = 272.0
+offset_bottom = 260.0
 text = "Fring"
 
 [node name="Label" type="Label" parent="Name"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 321.0
-offset_right = 77.0
-offset_bottom = 344.0
+offset_left = 39.0
+offset_top = 190.0
+offset_right = 86.0
+offset_bottom = 213.0
 text = "Name"
 
 [node name="Avatar" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 631.0
-offset_top = 126.0
-offset_right = 663.0
-offset_bottom = 158.0
+offset_left = 303.0
+offset_top = 15.0
+offset_right = 335.0
+offset_bottom = 47.0
 scale = Vector2(10, 10)
 texture = ExtResource("4_sycal")
 

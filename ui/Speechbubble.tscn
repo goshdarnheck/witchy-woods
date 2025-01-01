@@ -49,10 +49,9 @@ size_flags_horizontal = 0
 
 [node name="Image" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/Stuff"]
 texture_filter = 1
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("2_yo4te")
-flip_h = true
 
 [node name="Text" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/Stuff"]
 layout_mode = 2

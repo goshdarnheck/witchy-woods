@@ -23,17 +23,15 @@ offset_bottom = 31.0
 [node name="Study" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 3.0
-offset_top = -1.0
-offset_right = 43.0
-offset_bottom = 39.0
+offset_right = 16.0
+offset_bottom = 16.0
 texture = ExtResource("2_qynah")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Heart" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 1098.0
-offset_top = 8.0
-offset_right = 1138.0
-offset_bottom = 48.0
+offset_left = 622.0
+offset_top = 1.0
+offset_right = 638.0
+offset_bottom = 17.0
 texture = ExtResource("3_hsogr")
