@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c4kq6w0a3clwt"]
+[gd_scene load_steps=2 format=3 uid="uid://c4kq6w0a3clwt"]
+
+[ext_resource type="Texture2D" uid="uid://iuk5lkwif0jb" path="res://textures/novice-plant-hat.png" id="1_juvku"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -8,33 +10,62 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0.129412, 0.0823529, 0.666667)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+color = Color(0.0705882, 0.105882, 0.184314, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 text = "hat"
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 67.0
-offset_right = 39.0
-offset_bottom = 90.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_juvku")
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Novice Plant Hat
+"
+
+[node name="Label2" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 text = "cloak"
 
-[node name="Label3" type="Label" parent="."]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 146.0
-offset_right = 43.0
-offset_bottom = 169.0
+[node name="Label3" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 text = "boots
 "
 
-[node name="Label4" type="Label" parent="."]
-layout_mode = 0
-offset_left = 505.0
-offset_top = 8.0
-offset_right = 545.0
-offset_bottom = 31.0
+[node name="Label4" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 text = "wand"

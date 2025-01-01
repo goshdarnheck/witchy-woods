@@ -11,7 +11,7 @@ var convo = {
 	},
 	"why": {
 		"name": Manager.character.name,
-		"image": "plant-player.png",
+		"image": Manager.character.study + "-player.png",
 		"text": "huh? why?",
 		"next": "dunno"
 	},

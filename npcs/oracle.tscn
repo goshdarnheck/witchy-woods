@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bx72qcro77gql"]
+
+[ext_resource type="Script" path="res://npcs/oracle.gd" id="1_na3tv"]
+[ext_resource type="Texture2D" uid="uid://caegnxbg2vtx7" path="res://textures/oracle.png" id="2_qap6o"]
+[ext_resource type="PackedScene" uid="uid://djgmry63tdq7d" path="res://npcs/speach_collider.tscn" id="3_3glp7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bvf4d"]
+radius = 29.32
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_37w07"]
+radius = 77.62
+
+[node name="Oracle" type="CharacterBody2D"]
+script = ExtResource("1_na3tv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bvf4d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_qap6o")
+
+[node name="SpeachCollider" parent="." instance=ExtResource("3_3glp7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeachCollider"]
+shape = SubResource("CircleShape2D_37w07")

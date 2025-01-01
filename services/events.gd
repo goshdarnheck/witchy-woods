@@ -2,6 +2,13 @@ extends Node
 
 var subs = Dictionary()
 
+# HOW TO USE
+# Subscribe
+# Events.subscribe("AWAKEN", self, "_eventHandler");
+#
+# EMIT
+# Events.broadcast("AWAKEN", character_choices);
+
 func subscribe(event_id, subscriber: Object, function_name: String) -> void:
 	var sub = Sub.new(event_id, subscriber, function_name)
 

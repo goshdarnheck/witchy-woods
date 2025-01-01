@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmsw2hao1btpp"]
+
+[ext_resource type="Texture2D" uid="uid://dkh2keskiahb4" path="res://textures/rock.png" id="1_p457g"]
+[ext_resource type="Script" path="res://npcs/rock.gd" id="1_weqbn"]
+[ext_resource type="PackedScene" uid="uid://djgmry63tdq7d" path="res://npcs/speach_collider.tscn" id="2_or0h0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4t14"]
+radius = 13.0
+height = 54.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_khla3"]
+radius = 63.0079
+
+[node name="Rock" type="Area2D"]
+position = Vector2(0, -16)
+script = ExtResource("1_weqbn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_l4t14")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_p457g")
+
+[node name="SpeachCollider" parent="." instance=ExtResource("2_or0h0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeachCollider"]
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_khla3")

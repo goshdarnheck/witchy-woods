@@ -1,22 +1,29 @@
 extends Node
 
+# BIG NODES
+var World = null;
+var UI = null;
+var Overlay = null;
+
+# CURRENT BIG NODES, kinda state
 var world = "DEFAULT";
 var ui = "INTRO";
-var paused = false;
 var overlay = "none";
+
+# BIG STATE I GUESS
+var is_speaking = false;
+var paused = false;
+
+# player state, more detailed game state here? how do you make a game?
 var character = {
 	"name": "Fringor",
 	"study": "fire"
 }
-var World = null;
-var UI = null;
-var Overlay = null;
 
 func _ready():
 	World = get_tree().get_root().get_node("Main/World");
 	UI = get_tree().get_root().get_node("Main/UI");
 	Overlay = get_tree().get_root().get_node("Main/Overlay");
-	#Events.subscribe("AWAKEN", self, "_eventHandler");
 	_load_UI("intro");
 
 func isSpeechbubble():
@@ -61,21 +68,25 @@ func loadStage(stageName):
 		_load_UI("overworld");
 
 func speech_bubble(data):
+	is_speaking = true;
+	
 	_pause();
 	if !isSpeechbubble():
 		_load_Overlay("Speechbubble");
 	Overlay.get_child(0).setContent(data);
 
 func speech_bubble_close():
+	is_speaking = false;
+	
 	_unpause();
 	_clear_Overlay();
 
 func _eventHandler(event, data):
 	print("manager event handler", event, data);
 
-func _load_level(name):
-	var scene = load("res://levels/" + name + ".tscn");
-	print("res://levels/" + name + ".tscn")
+func _load_level(lname):
+	var scene = load("res://levels/" + lname + ".tscn");
+	print("res://levels/" + lname + ".tscn")
 	var instance = scene.instantiate();
 
 	if (!"no_player" in instance || !instance.no_player):

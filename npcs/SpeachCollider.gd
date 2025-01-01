@@ -31,7 +31,6 @@ func _on_body_entered(body):
 		entered = true;
 		$SpeechBubble.visible = true;
 
-
 func _on_body_exited(body):
 	if "player" in body:
 		entered = false;
