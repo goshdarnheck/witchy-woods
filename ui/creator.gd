@@ -15,7 +15,7 @@ func _on_awaken_button_pressed():
 	}
 
 	Manager.set_character(character_choices);
-	Manager.loadStage("beginning");
+	Manager.load_stage("beginning");
 
 
 func _on_fire_pressed():

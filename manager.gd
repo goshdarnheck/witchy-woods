@@ -17,17 +17,17 @@ var paused = false;
 # player state, more detailed game state here? how do you make a game?
 var character = {
 	"name": "Fringor",
-	"study": "fire"
+	"study": "fire",
+	"equipment": {}
 }
+var inventory = null;
 
 func _ready():
 	World = get_tree().get_root().get_node("Main/World");
 	UI = get_tree().get_root().get_node("Main/UI");
 	Overlay = get_tree().get_root().get_node("Main/Overlay");
-	_load_UI("intro");
-
-func isSpeechbubble():
-	return _is_Overlay("Speechbubble")
+	_load_ui("intro");
+	inventory = Inventory.new();
 
 func _input(event):
 	if Input.is_action_pressed("ui_cancel"):
@@ -40,12 +40,12 @@ func _input(event):
 			if event.keycode == KEY_TAB:
 				if overlay == "inventory":
 					_unpause();
-					_clear_Overlay();
+					_clear_overlay();
 					overlay = "none"
 				else:
 					overlay = "inventory";
 					_pause();
-					_load_Overlay("inventory");
+					_load_overlay("inventory");
 
 func _pause():
 	paused = true;
@@ -56,37 +56,32 @@ func _unpause():
 func _process(delta):
 	pass;
 
-func loadStage(stageName):
+func load_stage(stageName):
 	if stageName == "creator":
 		_load_level("creator");
-		_load_UI("creator");
+		_load_ui("creator");
 	elif stageName == "load":
 		_load_level("load");
-		_load_UI("load");
+		_load_ui("load");
 	else:
 		_load_level(stageName);
-		_load_UI("overworld");
+		_load_ui("overworld");
 
 func speech_bubble(data):
 	is_speaking = true;
-	
 	_pause();
-	if !isSpeechbubble():
-		_load_Overlay("Speechbubble");
+	if !_is_overlay("Speechbubble"):
+		_load_overlay("Speechbubble");
 	Overlay.get_child(0).setContent(data);
 
 func speech_bubble_close():
 	is_speaking = false;
 	
 	_unpause();
-	_clear_Overlay();
-
-func _eventHandler(event, data):
-	print("manager event handler", event, data);
+	_clear_overlay();
 
 func _load_level(lname):
 	var scene = load("res://levels/" + lname + ".tscn");
-	print("res://levels/" + lname + ".tscn")
 	var instance = scene.instantiate();
 
 	if (!"no_player" in instance || !instance.no_player):
@@ -99,9 +94,8 @@ func _load_level(lname):
 
 	World.add_child(instance)
 	
-
-func _load_UI(name):
-	var scene = load("res://ui/" + name + ".tscn");
+func _load_ui(uiname):
+	var scene = load("res://ui/" + uiname + ".tscn");
 	var instance = scene.instantiate();
 	
 	for i in range(0, UI.get_child_count()):
@@ -109,22 +103,21 @@ func _load_UI(name):
 		
 	UI.add_child(instance);
 	
-func _load_Overlay(name):
-	var scene = load("res://ui/" + name + ".tscn");
+func _load_overlay(oname):
+	var scene = load("res://ui/" + oname + ".tscn");
 	var instance = scene.instantiate();
 	
-	_clear_Overlay();
-		
+	_clear_overlay();
 	Overlay.add_child(instance);
 
-func _clear_Overlay():
+func _clear_overlay():
 	for i in range(0, Overlay.get_child_count()):
 		Overlay.get_child(i).queue_free();
 
-func _is_Overlay(name):
+func _is_overlay(oname):
 	if (Overlay.get_child_count() > 0):
 		print(Overlay.get_child(0))
-		return Overlay.get_child(0).name == name;
+		return Overlay.get_child(0).name == oname;
 
 func set_character(data):
 	character = data;
@@ -132,8 +125,11 @@ func set_character(data):
 func save():
 	pass;
 	
-func getSaves():
+func get_saves():
 	pass;
 
-func loadSave():
+func load_save():
 	pass;
+
+#func _event_handler(event, data):
+	#print("manager event handler", event, data);
