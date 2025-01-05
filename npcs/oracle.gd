@@ -30,11 +30,13 @@ var convo = {
 		"name": displayName,
 		"image": "oracle.png",
 		"text": "Go away!",
+		"func": "_end"
 	},
 	"apleasure": {
 		"name": displayName,
 		"image": "oracle.png",
 		"text": "A pleasure to meet you, I am the Oracle of This Place!",
+		"func": "_end"
 	},
 	"nothing": {
 		"name": displayName,
@@ -43,6 +45,11 @@ var convo = {
 	}
 }
 var speaking = false;
+
+func _end():
+	speaking = false;
+	current = "nothing";
+	Manager.speech_bubble_close();
 
 func speakKey():
 	var speech = get_speech(current);
