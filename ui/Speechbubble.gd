@@ -16,10 +16,10 @@ func setContent(data):
 	else:
 		print("missing image")
 
+	var Responses = find_child("Responses")
+	for i in range(0, Responses.get_child_count()):
+		Responses.get_child(i).queue_free();
+		
 	if "buttons" in data:
 		for b in data.buttons:
-			find_child("Responses").add_child(b);
-	else:
-		var Responses = find_child("Responses")
-		for i in range(0, Responses.get_child_count()):
-			Responses.get_child(i).queue_free();
+			Responses.add_child(b);

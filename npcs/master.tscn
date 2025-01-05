@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://djgmry63tdq7d" path="res://npcs/speach_collider.tscn" id="2_2conu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvlh2"]
-radius = 12.0416
+radius = 11.0454
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w87wm"]
-radius = 6.50214
+radius = 4.83621
 
 [node name="Master" type="CharacterBody2D"]
 script = ExtResource("1_ylybi")
@@ -25,6 +25,6 @@ shape = SubResource("CircleShape2D_mvlh2")
 [node name="SpeachCollider" parent="." instance=ExtResource("2_2conu")]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SpeachCollider"]
-position = Vector2(0, 13)
+position = Vector2(0, 10)
 scale = Vector2(6, 6)
 shape = SubResource("CircleShape2D_w87wm")

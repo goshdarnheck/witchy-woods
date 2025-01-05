@@ -39,9 +39,8 @@ func _input(event):
 			_unpause();
 			_clear_overlay();
 		else:
-			print("not inventory somehow")
 			_pause();
-			_load_overlay("Inventory");
+			_load_overlay("Inventory", inventory.get_items());
 	
 	if actionKey:
 		if _is_overlay("NewItem"):

@@ -14,6 +14,25 @@ func _on_awaken_button_pressed():
 		"study": studySelected
 	}
 
+	var hat = {
+		"type": "hat",
+		"name": "Straw Hat",
+		"image": "novice-plant-hat.png"
+	};
+	
+	var cloak = {
+		"type": "cloak",
+		"name": "Novice Plant Cloak",
+		"image": "novice-plant-cloak.png"
+	};
+	
+	var boots = {
+		"type": "boots",
+		"name": "Novice Boots",
+		"image": "novice-boots.png"
+	};
+	
+	Manager.inventory.add_items([hat, cloak, boots]);
 	Manager.set_character(character_choices);
 	Manager.load_stage("beginning");
 

@@ -4,20 +4,25 @@
 [ext_resource type="PackedScene" uid="uid://djgmry63tdq7d" path="res://npcs/speach_collider.tscn" id="2_innva"]
 [ext_resource type="Texture2D" uid="uid://dkh2keskiahb4" path="res://textures/rock.png" id="2_k3l51"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bvf4d"]
-radius = 15.2971
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_17pdv"]
+radius = 7.0
+height = 26.7857
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lsvmu"]
-radius = 31.0
+radius = 34.0147
 
 [node name="Rock" type="StaticBody2D"]
 script = ExtResource("1_7h6uo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_bvf4d")
+position = Vector2(0, 1)
+rotation = 1.5708
+scale = Vector2(1, 1.12)
+shape = SubResource("CapsuleShape2D_17pdv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -6)
 texture = ExtResource("2_k3l51")
 
 [node name="SpeachCollider" parent="." instance=ExtResource("2_innva")]

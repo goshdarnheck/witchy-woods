@@ -11,6 +11,6 @@ func _process(delta):
 
 func _physics_process(delta):
 	if (!Manager.paused):
-		var input_direction = Input.get_vector("left", "right", "up", "down").normalized()
-		velocity = input_direction * speed
-		move_and_slide()
+		var input_direction = Input.get_vector("left", "right", "up", "down").normalized();
+		velocity = input_direction * speed;
+		move_and_slide();

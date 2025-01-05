@@ -1,71 +1,117 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4kq6w0a3clwt"]
+[gd_scene load_steps=5 format=3 uid="uid://c4kq6w0a3clwt"]
 
+[ext_resource type="Script" path="res://ui/Inventory.gd" id="1_4k2u2"]
 [ext_resource type="Texture2D" uid="uid://iuk5lkwif0jb" path="res://textures/novice-plant-hat.png" id="1_s7vem"]
 
-[node name="Inventory" type="Control"]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tgxs"]
+bg_color = Color(0.133333, 0.0784314, 0.027451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikvpu"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.105882, 0.0588235, 0.411765, 1)
+
+[node name="Inventory" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3tgxs")
+script = ExtResource("1_4k2u2")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
-layout_mode = 2
-color = Color(0, 0.129412, 0.0823529, 0.666667)
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/MarginContainer"]
-layout_mode = 2
-color = Color(0.0705882, 0.105882, 0.184314, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+[node name="Equipment" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="HatPanel" type="PanelContainer" parent="Equipment"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ikvpu")
+
+[node name="HatInfo" type="VBoxContainer" parent="Equipment/HatPanel"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Equipment/HatPanel/HatInfo"]
 layout_mode = 2
-text = "hat"
+text = "Hat"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HatImage" type="TextureRect" parent="Equipment/HatPanel/HatInfo"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("1_s7vem")
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HatName" type="Label" parent="Equipment/HatPanel/HatInfo"]
 layout_mode = 2
 text = "Novice Plant Hat
 "
 
-[node name="Label2" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="CloakPanel" type="PanelContainer" parent="Equipment"]
 layout_mode = 2
-text = "cloak"
 
-[node name="Label3" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="CloakInfo" type="VBoxContainer" parent="Equipment/CloakPanel"]
 layout_mode = 2
-text = "boots
+
+[node name="Label" type="Label" parent="Equipment/CloakPanel/CloakInfo"]
+layout_mode = 2
+text = "Cloak
 "
 
-[node name="Label4" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="CloakImage" type="TextureRect" parent="Equipment/CloakPanel/CloakInfo"]
+texture_filter = 1
 layout_mode = 2
-text = "wand"
+size_flags_horizontal = 0
+texture = ExtResource("1_s7vem")
+
+[node name="CloakName" type="Label" parent="Equipment/CloakPanel/CloakInfo"]
+layout_mode = 2
+text = "None
+"
+
+[node name="BootsBox" type="VBoxContainer" parent="Equipment"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Equipment/BootsBox"]
+layout_mode = 2
+text = "Boots
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Equipment/BootsBox"]
+layout_mode = 2
+
+[node name="BootsImage" type="TextureRect" parent="Equipment/BootsBox/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_s7vem")
+
+[node name="BootsName" type="Label" parent="Equipment/BootsBox/VBoxContainer"]
+layout_mode = 2
+text = "None
+"
+
+[node name="WandBox" type="VBoxContainer" parent="Equipment"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Equipment/WandBox"]
+layout_mode = 2
+text = "Wand
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Equipment/WandBox"]
+layout_mode = 2
+
+[node name="WandImage" type="TextureRect" parent="Equipment/WandBox/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_s7vem")
+
+[node name="WandName" type="Label" parent="Equipment/WandBox/VBoxContainer"]
+layout_mode = 2
+text = "None
+
+"

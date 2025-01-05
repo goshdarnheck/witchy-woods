@@ -1,7 +1,6 @@
 extends Control
 
 func setContent(items):
-	print("newitem setcontent data", items)
 	for item in items:
 		if "name" in item:
 			find_child("Name").text = item.name
