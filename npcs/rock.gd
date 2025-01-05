@@ -1,7 +1,8 @@
-extends Area2D
+extends StaticBody2D
 
 var displayName = "Noticable Rock";
 var current = "nothing";
+var speaking = false;
 var convo = {
 	"nothing": {
 		"name": displayName,
@@ -10,16 +11,13 @@ var convo = {
 	},
 }
 
-func get_current_speech():
-	return convo[current];
-
-func get_next_speech():
+func speakKey():
+	Manager.speech_bubble(convo[current]);
+	
+func actionKey():
 	if "next" in convo[current]:
 		var next = convo[current]["next"];
-		if (next):
-			current = next;
-			return convo[next];
-		else:
-			return false;
+		current = next;
+		Manager.speech_bubble(next);
 	else:
-		return false;
+		Manager.speech_bubble_close();

@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends StaticBody2D
 
 var displayName = "Oracle";
 var current = "hey";
@@ -42,52 +42,40 @@ var convo = {
 		"text": "...",
 	}
 }
+var speaking = false;
 
-func speechChoices(data):
-	print(data)
+func speakKey():
+	var speech = get_speech(current);
+	Manager.speech_bubble(speech);
+	speaking = true;
 
-func get_current_speech():
-	return get_speech(current)
-
-func get_next_speech():
-	if "next" in convo[current]:
-		var key = convo[current]["next"]
-		var next = get_speech(key)
-		
-		if (next):
-			current = key;
-			
-			if "responses" in next:
-				var buttons = [];
-				for i in range(next.responses.size()):
-					var r = next.responses[i];
-					var button = Button.new();
-					button.text = r.text;
-					button.pressed.connect(self._button_pressed.bind(i));
-					buttons.append(button);
-					next.buttons = buttons;
-			#else:
-				#var button = Button.new();
-				#button.text = "next";
-				#button.pressed.connect(self._button_pressed.bind("next"));
-				#next.buttons = [button];
-			return next;
+func actionKey():
+	if speaking:
+		if "next" in convo[current]:
+			var next = convo[current]["next"];
+			var speech = get_speech(next);
+			current = next;
+			Manager.speech_bubble(speech);
+		elif "func" in convo[current]:
+			self.call(convo[current].func)
 		else:
-			return false;
-	else:
-		return false;
+			Manager.speech_bubble_close();
+			speaking = false;
+
+func gen_buttons(responses):
+	var buttons = [];
+	for i in range(responses.size()):
+		var r = responses[i];
+		var button = Button.new();
+		button.text = r.text;
+		button.pressed.connect(self._button_pressed.bind(i));
+		buttons.append(button);
+	return buttons
 
 func get_speech(key):
 	var speech = convo[key];
 	if "responses" in speech:
-		var buttons = [];
-		for i in range(speech.responses.size()):
-			var r = speech.responses[i];
-			var button = Button.new();
-			button.text = r.text;
-			button.pressed.connect(self._button_pressed.bind(i));
-			buttons.append(button);
-			speech.buttons = buttons;
+		speech.buttons = gen_buttons(speech.responses);
 	return speech;
 
 func _button_pressed(index):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bx72qcro77gql"]
 
-[ext_resource type="Script" path="res://npcs/oracle.gd" id="1_na3tv"]
+[ext_resource type="Script" path="res://npcs/oracle.gd" id="1_pf8e3"]
 [ext_resource type="Texture2D" uid="uid://caegnxbg2vtx7" path="res://textures/oracle.png" id="2_qap6o"]
 [ext_resource type="PackedScene" uid="uid://djgmry63tdq7d" path="res://npcs/speach_collider.tscn" id="3_3glp7"]
 
@@ -10,8 +10,8 @@ radius = 15.2971
 [sub_resource type="CircleShape2D" id="CircleShape2D_37w07"]
 radius = 53.0377
 
-[node name="Oracle" type="CharacterBody2D"]
-script = ExtResource("1_na3tv")
+[node name="Oracle" type="StaticBody2D"]
+script = ExtResource("1_pf8e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bvf4d")

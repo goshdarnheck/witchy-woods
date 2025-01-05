@@ -7,7 +7,7 @@ var convo = {
 		"name": displayName,
 		"image": "master.png",
 		"text": "Take these...",
-		"next": "why"
+		"func": "_give_items"
 	},
 	"why": {
 		"name": Manager.character.name,
@@ -19,28 +19,43 @@ var convo = {
 		"image": "master.png",
 		"name": displayName,
 		"text": "I dunno lol"
+	},
+	"go": {
+		"image": "master.png",
+		"name": displayName,
+		"text": "Go!"
 	}
 }
+var speaking = false;
 
-func get_current_speech():
-	return convo[current];
+func speakKey():
+	Manager.speech_bubble(convo[current]);
+	speaking = true;
 
-func get_next_speech():
-	if "next" in convo[current]:
-		var next = convo[current]["next"];
-		if (next):
+func actionKey():
+	if speaking:
+		if "next" in convo[current]:
+			var next = convo[current]["next"];
 			current = next;
-			return convo[next];
+			Manager.speech_bubble(convo[current]);
+		elif "func" in convo[current]:
+			self.call(convo[current].func)
 		else:
-			return false;
-	else:
-		return false;
+			if (current == "dunno"):
+				current = "go";
+			
+			Manager.speech_bubble_close();
+			speaking = false;
 
-#func _ready():
-	#pass;
-#
-#func _process(delta):
-	#pass;
-#
-#func _physics_process(delta):
-	#pass;
+func _give_items():
+	var item = {
+		"type": "wand",
+		"name": "Basic Wand",
+		"image": "imagehere"
+	};
+	
+	speaking = false;
+	current = "why";
+	Manager.speech_bubble_close();
+	Manager.inventory.add_item(item);
+	Manager.show_items([item]);

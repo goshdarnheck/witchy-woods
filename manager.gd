@@ -8,10 +8,8 @@ var Overlay = null;
 # CURRENT BIG NODES, kinda state
 var world = "DEFAULT";
 var ui = "INTRO";
-var overlay = "none";
 
 # BIG STATE I GUESS
-var is_speaking = false;
 var paused = false;
 
 # player state, more detailed game state here? how do you make a game?
@@ -38,14 +36,17 @@ func _input(event):
 	if event is InputEventKey:
 		if event.pressed:
 			if event.keycode == KEY_TAB:
-				if overlay == "inventory":
+				if _is_overlay("inventory"):
 					_unpause();
 					_clear_overlay();
-					overlay = "none"
 				else:
-					overlay = "inventory";
 					_pause();
 					_load_overlay("inventory");
+	
+	if actionKey:
+		if _is_overlay("NewItem"):
+			_unpause();
+			_clear_overlay();
 
 func _pause():
 	paused = true;
@@ -68,17 +69,20 @@ func load_stage(stageName):
 		_load_ui("overworld");
 
 func speech_bubble(data):
-	is_speaking = true;
-	_pause();
-	if !_is_overlay("Speechbubble"):
-		_load_overlay("Speechbubble");
-	Overlay.get_child(0).setContent(data);
+	if (!_is_overlay("NewItem")):
+		_pause();
+		if !_is_overlay("Speechbubble"):
+			_load_overlay("Speechbubble");
+		Overlay.get_child(0).setContent(data);
 
 func speech_bubble_close():
-	is_speaking = false;
-	
-	_unpause();
-	_clear_overlay();
+	if _is_overlay("Speechbubble"):
+		_unpause();
+		_clear_overlay();
+
+func show_items(items):
+	_pause();
+	Manager._load_overlay("NewItem");
 
 func _load_level(lname):
 	var scene = load("res://levels/" + lname + ".tscn");
@@ -116,20 +120,10 @@ func _clear_overlay():
 
 func _is_overlay(oname):
 	if (Overlay.get_child_count() > 0):
-		print(Overlay.get_child(0))
 		return Overlay.get_child(0).name == oname;
 
 func set_character(data):
 	character = data;
-
-func save():
-	pass;
-	
-func get_saves():
-	pass;
-
-func load_save():
-	pass;
 
 #func _event_handler(event, data):
 	#print("manager event handler", event, data);

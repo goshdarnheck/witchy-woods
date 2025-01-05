@@ -2,14 +2,18 @@ extends Object
 
 class_name Inventory
 
+var items = {
+	"wands": []
+}
+
 func _init():
-	print("init inventory")
 	pass;
 
-func add_item():
-	print("add_item inventory")
-	pass;
+func add_item(item):
+	items.wands.append(item);
 
 func get_items():
-	print("get_items inventory")
-	pass;
+	return items;
+
+func get_items_by_type(type):
+	return items.type;
