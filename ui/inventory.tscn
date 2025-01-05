@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c4kq6w0a3clwt"]
 
-[ext_resource type="Texture2D" uid="uid://iuk5lkwif0jb" path="res://textures/novice-plant-hat.png" id="1_juvku"]
+[ext_resource type="Texture2D" uid="uid://iuk5lkwif0jb" path="res://textures/novice-plant-hat.png" id="1_s7vem"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -50,7 +50,7 @@ layout_mode = 2
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("1_juvku")
+texture = ExtResource("1_s7vem")
 
 [node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2

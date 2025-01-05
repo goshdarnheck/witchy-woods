@@ -79,5 +79,7 @@ func get_speech(key):
 	return speech;
 
 func _button_pressed(index):
-	var next = get_speech(convo[current].responses[index].next);
-	Manager.speech_bubble(next);
+	var next = convo[current].responses[index].next;
+	var speech = get_speech(next);
+	current = next
+	Manager.speech_bubble(speech);

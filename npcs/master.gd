@@ -39,19 +39,18 @@ func actionKey():
 			current = next;
 			Manager.speech_bubble(convo[current]);
 		elif "func" in convo[current]:
-			self.call(convo[current].func)
+			self.call(convo[current].func);
 		else:
 			if (current == "dunno"):
 				current = "go";
-			
-			Manager.speech_bubble_close();
 			speaking = false;
+			Manager.speech_bubble_close();
 
 func _give_items():
 	var item = {
 		"type": "wand",
-		"name": "Basic Wand",
-		"image": "imagehere"
+		"name": "Stick Wand",
+		"image": "wand.png"
 	};
 	
 	speaking = false;
