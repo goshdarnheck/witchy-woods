@@ -6,7 +6,7 @@ var convo = {
 	"takethese": {
 		"name": displayName,
 		"image": "master.png",
-		"text": "Take these...",
+		"text": "Take this...",
 		"func": "_give_items"
 	},
 	"why": {
