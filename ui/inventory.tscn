@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4kq6w0a3clwt"]
+[gd_scene load_steps=6 format=3 uid="uid://c4kq6w0a3clwt"]
 
 [ext_resource type="Script" path="res://ui/Inventory.gd" id="1_4k2u2"]
 [ext_resource type="StyleBox" uid="uid://bkauimjeafhoj" path="res://ui/bits/panel-style.tres" id="2_6ifre"]
 [ext_resource type="Texture2D" uid="uid://dby20g081si1x" path="res://textures/x-16.png" id="3_neiad"]
+[ext_resource type="Texture2D" uid="uid://dcaps0fabgh5d" path="res://textures/plant-player.png" id="4_4r6u5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tgxs"]
 bg_color = Color(0.054902, 0, 0.192157, 1)
@@ -12,7 +13,7 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [node name="Inventory" type="PanelContainer"]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -24,99 +25,124 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3tgxs")
 script = ExtResource("1_4k2u2")
 
-[node name="Equipment" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Equipment" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Equipment"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Equipment/VBoxContainer"]
+layout_mode = 2
+text = "Equipment
+"
+
+[node name="Equipment" type="HBoxContainer" parent="HBoxContainer/Equipment/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="HatPanel" type="PanelContainer" parent="Equipment"]
+[node name="HatPanel" type="PanelContainer" parent="HBoxContainer/Equipment/VBoxContainer/Equipment"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_6ifre")
 
-[node name="HatInfo" type="VBoxContainer" parent="Equipment/HatPanel"]
+[node name="HatInfo" type="VBoxContainer" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/HatPanel"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Equipment/HatPanel/HatInfo"]
+[node name="Label" type="Label" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/HatPanel/HatInfo"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Hat"
 
-[node name="HatImage" type="TextureRect" parent="Equipment/HatPanel/HatInfo"]
+[node name="HatImage" type="TextureRect" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/HatPanel/HatInfo"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_neiad")
 
-[node name="HatName" type="Label" parent="Equipment/HatPanel/HatInfo"]
+[node name="HatName" type="Label" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/HatPanel/HatInfo"]
 layout_mode = 2
-text = "Novice Plant Hat"
+text = "None
+"
 
-[node name="CloakPanel" type="PanelContainer" parent="Equipment"]
+[node name="CloakPanel" type="PanelContainer" parent="HBoxContainer/Equipment/VBoxContainer/Equipment"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_6ifre")
 
-[node name="CloakInfo" type="VBoxContainer" parent="Equipment/CloakPanel"]
+[node name="CloakInfo" type="VBoxContainer" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/CloakPanel"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Equipment/CloakPanel/CloakInfo"]
+[node name="Label" type="Label" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/CloakPanel/CloakInfo"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Cloak
 "
 
-[node name="CloakImage" type="TextureRect" parent="Equipment/CloakPanel/CloakInfo"]
+[node name="CloakImage" type="TextureRect" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/CloakPanel/CloakInfo"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_neiad")
 
-[node name="CloakName" type="Label" parent="Equipment/CloakPanel/CloakInfo"]
+[node name="CloakName" type="Label" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/CloakPanel/CloakInfo"]
 layout_mode = 2
 text = "None"
 
-[node name="BootsPanel" type="PanelContainer" parent="Equipment"]
+[node name="BootsPanel" type="PanelContainer" parent="HBoxContainer/Equipment/VBoxContainer/Equipment"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_6ifre")
 
-[node name="BootsBox" type="VBoxContainer" parent="Equipment/BootsPanel"]
+[node name="BootsBox" type="VBoxContainer" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/BootsPanel"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Equipment/BootsPanel/BootsBox"]
+[node name="Label" type="Label" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/BootsPanel/BootsBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Boots
 "
 
-[node name="BootsImage" type="TextureRect" parent="Equipment/BootsPanel/BootsBox"]
+[node name="BootsImage" type="TextureRect" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/BootsPanel/BootsBox"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_neiad")
 
-[node name="BootsName" type="Label" parent="Equipment/BootsPanel/BootsBox"]
+[node name="BootsName" type="Label" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/BootsPanel/BootsBox"]
 layout_mode = 2
 text = "None"
 
-[node name="WandPanel" type="PanelContainer" parent="Equipment"]
+[node name="WandPanel" type="PanelContainer" parent="HBoxContainer/Equipment/VBoxContainer/Equipment"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_6ifre")
 
-[node name="WandBox" type="VBoxContainer" parent="Equipment/WandPanel"]
+[node name="WandBox" type="VBoxContainer" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/WandPanel"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Equipment/WandPanel/WandBox"]
+[node name="Label" type="Label" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/WandPanel/WandBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Wand
 "
 
-[node name="WandImage" type="TextureRect" parent="Equipment/WandPanel/WandBox"]
+[node name="WandImage" type="TextureRect" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/WandPanel/WandBox"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_neiad")
 
-[node name="WandName" type="Label" parent="Equipment/WandPanel/WandBox"]
+[node name="WandName" type="Label" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/WandPanel/WandBox"]
 layout_mode = 2
 text = "None
 "
+
+[node name="Player" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Player"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_4r6u5")
+stretch_mode = 4
