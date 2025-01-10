@@ -39,8 +39,9 @@ func _input(event):
 			_unpause();
 			_clear_overlay();
 		else:
-			_pause();
-			_load_overlay("Inventory", inventory.get_items());
+			if Overlay.get_child_count() <= 0:
+				_pause();
+				_load_overlay("Inventory", inventory.get_items());
 	
 	if actionKey:
 		if _is_overlay("NewItem"):
