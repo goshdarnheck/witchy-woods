@@ -58,7 +58,9 @@ func speakKey():
 
 func actionKey():
 	if speaking:
-		if "next" in convo[current]:
+		if "responses" in convo[current]:
+			print("MUST CHOOSE");
+		elif "next" in convo[current]:
 			var next = convo[current]["next"];
 			var speech = get_speech(next);
 			current = next;

@@ -1,8 +1,8 @@
 extends Control
 
 func _ready():
-	$Name.text = Manager.character.name;
-	$Study.texture = load("res://textures/" + Manager.character.study + ".png");
+	find_child("Name").text = Manager.character.name;
+	find_child("Study").texture = load("res://textures/" + Manager.character.study + ".png");
 
 func _process(delta):
 	pass

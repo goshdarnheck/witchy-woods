@@ -16,9 +16,12 @@ var paused = false;
 var character = {
 	"name": "Fringor",
 	"study": "fire",
-	"equipment": {}
+	"equipment": {
+		
+	}
 }
 var inventory = null;
+var equipment = null;
 
 func _ready():
 	World = get_tree().get_root().get_node("Main/World");
@@ -26,6 +29,7 @@ func _ready():
 	Overlay = get_tree().get_root().get_node("Main/Overlay");
 	_load_ui("intro");
 	inventory = Inventory.new();
+	equipment = Equipment.new();
 
 func _input(event):
 	if Input.is_action_pressed("ui_cancel"):
@@ -41,7 +45,7 @@ func _input(event):
 		else:
 			if Overlay.get_child_count() <= 0:
 				_pause();
-				_load_overlay("Inventory", inventory.get_items());
+				_load_overlay("Inventory", { "inventory": inventory.get_items(), "equipment": equipment.get_items() });
 	
 	if actionKey:
 		if _is_overlay("NewItem"):
@@ -116,6 +120,7 @@ func _load_overlay(oname, content = null):
 	Overlay.add_child(instance);
 
 	if content:
+		print(content)
 		instance.setContent(content);
 
 func _clear_overlay():

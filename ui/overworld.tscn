@@ -13,24 +13,49 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bop8l")
 
-[node name="Name" type="Label" parent="."]
-layout_mode = 0
-offset_left = 23.0
-offset_right = 63.0
+[node name="Health" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Health"]
+layout_mode = 2
+
+[node name="Heart" type="TextureRect" parent="Health/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_hsogr")
+stretch_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="Health/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_hsogr")
+stretch_mode = 4
+
+[node name="Heart3" type="TextureRect" parent="Health/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_hsogr")
+stretch_mode = 4
+
+[node name="Player" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_right = 16.0
 offset_bottom = 23.0
 
-[node name="Study" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-texture = ExtResource("2_qynah")
+[node name="HBoxContainer" type="HBoxContainer" parent="Player"]
+layout_mode = 2
 
-[node name="Heart" type="TextureRect" parent="."]
+[node name="Study" type="TextureRect" parent="Player/HBoxContainer"]
 texture_filter = 1
-layout_mode = 0
-offset_left = 622.0
-offset_top = 1.0
-offset_right = 638.0
-offset_bottom = 17.0
-texture = ExtResource("3_hsogr")
+layout_mode = 2
+texture = ExtResource("2_qynah")
+stretch_mode = 4
+
+[node name="Name" type="Label" parent="Player/HBoxContainer"]
+layout_mode = 2

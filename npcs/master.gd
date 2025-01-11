@@ -50,7 +50,7 @@ func _give_items():
 	var item = {
 		"type": "wand",
 		"name": "Stick Wand",
-		"image": "wand.png"
+		"image": "stick-wand.png"
 	};
 	
 	speaking = false;

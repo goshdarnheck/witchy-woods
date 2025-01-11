@@ -33,6 +33,7 @@ func _on_awaken_button_pressed():
 	};
 	
 	Manager.inventory.add_items([hat, cloak, boots]);
+	Manager.equipment.equip_items([hat, cloak, boots]);
 	Manager.set_character(character_choices);
 	Manager.load_stage("beginning");
 
