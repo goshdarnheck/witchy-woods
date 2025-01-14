@@ -120,7 +120,6 @@ func _load_overlay(oname, content = null):
 	Overlay.add_child(instance);
 
 	if content:
-		print(content)
 		instance.setContent(content);
 
 func _clear_overlay():

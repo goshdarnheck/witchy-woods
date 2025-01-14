@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4kq6w0a3clwt"]
+[gd_scene load_steps=7 format=3 uid="uid://c4kq6w0a3clwt"]
 
 [ext_resource type="Script" path="res://ui/Inventory.gd" id="1_4k2u2"]
 [ext_resource type="StyleBox" uid="uid://bkauimjeafhoj" path="res://ui/bits/panel-style.tres" id="2_6ifre"]
 [ext_resource type="Texture2D" uid="uid://dby20g081si1x" path="res://textures/x-16.png" id="3_neiad"]
 [ext_resource type="Texture2D" uid="uid://dcaps0fabgh5d" path="res://textures/plant-player.png" id="4_4r6u5"]
+[ext_resource type="PackedScene" uid="uid://jnq8t8ao2xa5" path="res://ui/bits/inv_list_item.tscn" id="5_007qe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tgxs"]
 bg_color = Color(0.054902, 0, 0.192157, 1)
@@ -141,8 +142,22 @@ text = "None
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Player"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Player"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Player/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("4_4r6u5")
+expand_mode = 2
 stretch_mode = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Player/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Items" type="VBoxContainer" parent="HBoxContainer/Player/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="InvItem" parent="HBoxContainer/Player/HBoxContainer/ScrollContainer/Items" instance=ExtResource("5_007qe")]
+layout_mode = 2

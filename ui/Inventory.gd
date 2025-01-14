@@ -5,6 +5,22 @@ func setContent(content):
 	set_equip("cloak", content.equipment.cloak);
 	set_equip("boots", content.equipment.boots);
 	set_equip("wand", content.equipment.wand);
+	
+	set_inventory_list(content.inventory);
+
+func set_inventory_list(inventory):
+	var item_scene = load("res://ui/bits/inv_list_item.tscn");
+	var node = find_child("Items");
+	
+	for i in range(0, node.get_child_count()):
+		node.get_child(i).queue_free();
+	
+	for cat in inventory:
+		for item in inventory[cat]:
+			var instance = item_scene.instantiate();
+			instance.find_child("Name").text = item.name;
+			instance.find_child("Icon").texture = load("res://textures/" + item.image);
+			node.add_child(instance);
 
 func set_equip(type, item):
 	if item and "type" in item and type == item.type:
