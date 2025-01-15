@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvkdi1n2nx8pd"]
+[gd_scene load_steps=9 format=3 uid="uid://dvkdi1n2nx8pd"]
 
 [ext_resource type="Script" path="res://levels/beginning.gd" id="1_b8ycq"]
 [ext_resource type="Texture2D" uid="uid://r1n4y0qp7bw4" path="res://textures/tileset.png" id="2_a3sk1"]
 [ext_resource type="PackedScene" uid="uid://do7brpdykw8yl" path="res://npcs/master.tscn" id="3_xucfc"]
 [ext_resource type="PackedScene" uid="uid://bx72qcro77gql" path="res://npcs/oracle.tscn" id="4_8j1de"]
 [ext_resource type="PackedScene" uid="uid://b61a2i3jdn6e4" path="res://npcs/rock.tscn" id="5_7au6q"]
+[ext_resource type="PackedScene" uid="uid://pjm2ecnrpxs7" path="res://doors/door.tscn" id="6_rrb0u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7et4y"]
 resource_name = "ground"
@@ -226,3 +227,11 @@ position = Vector2(316, 277)
 
 [node name="Rock" parent="." instance=ExtResource("5_7au6q")]
 position = Vector2(141, 187)
+
+[node name="Door" parent="." instance=ExtResource("6_rrb0u")]
+position = Vector2(136, 4)
+dest = "underworld"
+
+[node name="Door2" parent="." instance=ExtResource("6_rrb0u")]
+position = Vector2(251, 1)
+dest = "b"

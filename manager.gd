@@ -63,13 +63,13 @@ func _process(delta):
 
 func load_stage(stageName):
 	if stageName == "creator":
-		_load_level("creator");
+		load_level("creator");
 		_load_ui("creator");
 	elif stageName == "load":
-		_load_level("load");
+		load_level("load");
 		_load_ui("load");
 	else:
-		_load_level(stageName);
+		load_level(stageName);
 		_load_ui("overworld");
 
 func speech_bubble(content):
@@ -89,7 +89,7 @@ func show_items(items):
 	_pause();
 	Manager._load_overlay("NewItem", items);
 
-func _load_level(lname):
+func load_level(lname):
 	var scene = load("res://levels/" + lname + ".tscn");
 	var instance = scene.instantiate();
 
