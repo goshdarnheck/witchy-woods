@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://bo7qrl7uxurof"]
+[gd_scene load_steps=4 format=3 uid="uid://bo7qrl7uxurof"]
+
+[ext_resource type="PackedScene" uid="uid://c5uns4stf4wo6" path="res://ui/Speechbubble.tscn" id="1_hmris"]
+[ext_resource type="PackedScene" uid="uid://db55gtr3o30pe" path="res://ui/NewItem.tscn" id="2_csmtn"]
+[ext_resource type="PackedScene" uid="uid://c4kq6w0a3clwt" path="res://ui/Inventory.tscn" id="3_hrf0v"]
 
 [node name="Main" type="Node2D"]
 
@@ -8,3 +12,12 @@
 metadata/_edit_use_anchors_ = true
 
 [node name="Overlay" type="CanvasLayer" parent="."]
+
+[node name="Speechbubble" parent="Overlay" instance=ExtResource("1_hmris")]
+visible = false
+
+[node name="NewItem" parent="Overlay" instance=ExtResource("2_csmtn")]
+visible = false
+
+[node name="Inventory" parent="Overlay" instance=ExtResource("3_hrf0v")]
+visible = false

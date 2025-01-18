@@ -9,11 +9,10 @@ func _ready():
 	$EnterIcon.visible = false;
 	
 func _process(delta):
-	var speakKey = Input.is_action_just_pressed("speak");
+	var actionKey = Input.is_action_just_pressed("action");
 	
-	if entered && speakKey:
+	if entered && actionKey:
 		if dest:
-			print("wowoweee", dest)
 			Manager.load_level(dest);
 		else:
 			print("door has no dest!")

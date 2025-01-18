@@ -5,6 +5,7 @@
 [node name="InvListItem" type="HBoxContainer"]
 
 [node name="Icon" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

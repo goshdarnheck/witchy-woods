@@ -34,23 +34,17 @@ func _ready():
 func _input(event):
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
-		
-	var actionKey = Input.is_action_just_pressed("action");
+
 	var inventoryKey = Input.is_action_just_pressed("inventory");
 	
 	if inventoryKey:
-		if _is_overlay("Inventory"):
+		if Overlay.find_child("Inventory").visible:
+			Overlay.find_child("Inventory").visible = false;
 			_unpause();
-			_clear_overlay();
 		else:
-			if Overlay.get_child_count() <= 0:
-				_pause();
-				_load_overlay("Inventory", { "inventory": inventory.get_items(), "equipment": equipment.get_items() });
-	
-	if actionKey:
-		if _is_overlay("NewItem"):
-			_unpause();
-			_clear_overlay();
+			_pause();
+			Overlay.find_child("Inventory").setContent({ "inventory": inventory.get_items(), "equipment": equipment.get_items() });
+			Overlay.find_child("Inventory").visible = true;
 
 func _pause():
 	paused = true;
@@ -73,21 +67,22 @@ func load_stage(stageName):
 		_load_ui("overworld");
 
 func speech_bubble(content):
-	if (!_is_overlay("NewItem")):
-		_pause();
-		if _is_overlay("Speechbubble"):
-			Overlay.get_child(0).setContent(content);
-		else:
-			_load_overlay("Speechbubble", content);
+	_pause();
+	Overlay.find_child("Speechbubble").setContent(content);
+	Overlay.find_child("Speechbubble").visible = true;
 
 func speech_bubble_close():
-	if _is_overlay("Speechbubble"):
-		_clear_overlay();
-		_unpause();
+	Overlay.find_child("Speechbubble").visible = false;
+	_unpause();
 
 func show_items(items):
 	_pause();
-	Manager._load_overlay("NewItem", items);
+	Overlay.find_child("NewItem").setContent(items);
+	Overlay.find_child("NewItem").visible = true;
+
+func dismiss_items():
+	_unpause();
+	Overlay.find_child("NewItem").visible = false;
 
 func load_level(lname):
 	var scene = load("res://levels/" + lname + ".tscn");
@@ -111,24 +106,6 @@ func _load_ui(uiname):
 		UI.get_child(i).queue_free();
 		
 	UI.add_child(instance);
-	
-func _load_overlay(oname, content = null):
-	var scene = load("res://ui/" + oname + ".tscn");
-	var instance = scene.instantiate();
-	
-	_clear_overlay();
-	Overlay.add_child(instance);
-
-	if content:
-		instance.setContent(content);
-
-func _clear_overlay():
-	for i in range(0, Overlay.get_child_count()):
-		Overlay.get_child(i).queue_free();
-
-func _is_overlay(oname):
-	if (Overlay.get_child_count() > 0):
-		return Overlay.get_child(0).name == oname;
 
 func set_character(data):
 	character = data;

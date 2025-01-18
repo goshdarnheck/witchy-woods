@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpbke774v8qcs"]
+
+[ext_resource type="Script" path="res://npcs/hole.gd" id="1_bwnco"]
+[ext_resource type="Texture2D" uid="uid://c1mffje2uekwd" path="res://textures/hole.png" id="1_uaq1k"]
+[ext_resource type="PackedScene" uid="uid://djgmry63tdq7d" path="res://npcs/speach_collider.tscn" id="2_e5fjj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tbtwd"]
+radius = 13.0384
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pl8xh"]
+radius = 28.0
+
+[node name="Hole" type="StaticBody2D"]
+script = ExtResource("1_bwnco")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 7)
+shape = SubResource("CircleShape2D_tbtwd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_uaq1k")
+
+[node name="SpeachCollider" parent="." instance=ExtResource("2_e5fjj")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeachCollider"]
+shape = SubResource("CircleShape2D_pl8xh")
