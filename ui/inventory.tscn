@@ -138,6 +138,29 @@ layout_mode = 2
 text = "None
 "
 
+[node name="RingPanel" type="PanelContainer" parent="HBoxContainer/Equipment/VBoxContainer/Equipment"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_6ifre")
+
+[node name="RingBox" type="VBoxContainer" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/RingPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/RingPanel/RingBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Ring"
+
+[node name="ringImage" type="TextureRect" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/RingPanel/RingBox"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_neiad")
+
+[node name="ringName" type="Label" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/RingPanel/RingBox"]
+layout_mode = 2
+text = "None
+"
+
 [node name="Player" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3

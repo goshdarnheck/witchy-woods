@@ -1,4 +1,1 @@
-- rework "copied" "actionKey" func into "oracle" npc
-
-- remove speachKey from button thing
 - Should be SPEECH not SPEACH lol
