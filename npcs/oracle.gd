@@ -16,12 +16,10 @@ var convo = {
 		"responses": [
 			{
 				"text": "Hello, it is I, " + Manager.character.name + "!",
-				"callback": "speechChoices",
 				"next": "apleasure"
 			},
 			{
 				"text": "Heya!",
-				"callback": null,
 				"next": "goaway"
 			}
 		]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvkdi1n2nx8pd"]
+[gd_scene load_steps=12 format=3 uid="uid://dvkdi1n2nx8pd"]
 
 [ext_resource type="Script" path="res://levels/beginning.gd" id="1_b8ycq"]
 [ext_resource type="Texture2D" uid="uid://r1n4y0qp7bw4" path="res://textures/tileset.png" id="2_a3sk1"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://pjm2ecnrpxs7" path="res://doors/door.tscn" id="6_rrb0u"]
 [ext_resource type="PackedScene" uid="uid://bcr3vjnlb4d3l" path="res://npcs/dude.tscn" id="7_0h57h"]
 [ext_resource type="PackedScene" uid="uid://cpbke774v8qcs" path="res://npcs/hole.tscn" id="8_y5yer"]
+[ext_resource type="PackedScene" uid="uid://bsjs1sxqag71f" path="res://npcs/witch.tscn" id="9_klgfm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7et4y"]
 resource_name = "ground"
@@ -239,3 +240,6 @@ position = Vector2(258, 45)
 
 [node name="Hole" parent="." instance=ExtResource("8_y5yer")]
 position = Vector2(350, 152)
+
+[node name="Witch" parent="." instance=ExtResource("9_klgfm")]
+position = Vector2(6, 70)

@@ -18,6 +18,7 @@ func _process(delta):
 func showCurrentSpeech():
 	if giving_items:
 		Manager.dismiss_items();
+		giving_items = false;
 	if end == true:
 		end = false;
 		Manager.speech_bubble_close();
@@ -26,22 +27,17 @@ func showCurrentSpeech():
 	elif parent.current:
 		var speech = parent.convo[parent.current];
 
-		if "func" in speech:
-			parent.call(speech.func);
-		#elif "responses" in speech:
-			#print("MUST CHOOSE");
+		if "items" in speech and speech.items:
+			_give_items(speech.items);
 		else:
-			if "items" in speech and speech.items:
-				_give_items(speech.items);
-			else:
-				if "responses" in speech:
-					speech.buttons = _gen_buttons(speech.responses);
-				Manager.speech_bubble(speech);
+			if "responses" in speech:
+				speech.buttons = _gen_buttons(speech.responses);
+			Manager.speech_bubble(speech);
 
-			if "next" in speech:
-				parent.current = speech["next"];
-			if "end" in speech and speech.end == true:
-				end = true;
+		if "next" in speech:
+			parent.current = speech["next"];
+		if "end" in speech and speech.end == true:
+			end = true;
 
 func _gen_buttons(responses):
 	var buttons = [];
@@ -56,10 +52,16 @@ func _gen_buttons(responses):
 #this code and the code in action key should share a func!
 func _button_pressed(index):
 	var speech = parent.convo[parent.current];
-	var choice = speech.responses[index].next;
+	var choice = speech.responses[index];
 	
-	parent.current = choice;
-	showCurrentSpeech();
+	if "next" in choice:
+		parent.current = choice["next"];
+		showCurrentSpeech();
+	if "end" in choice && choice.end == true:
+		Manager.speech_bubble_close();
+		if !"next" in choice or choice.next == null:
+			$SpeechBubble.visible = false;
+	
 
 func _give_items(items):
 	giving_items = true;

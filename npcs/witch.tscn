@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsjs1sxqag71f"]
+
+[ext_resource type="Texture2D" uid="uid://c1ei2c572yjsc" path="res://textures/witch.png" id="1_7syi7"]
+[ext_resource type="Script" path="res://npcs/witch.gd" id="1_bkpuh"]
+[ext_resource type="PackedScene" uid="uid://djgmry63tdq7d" path="res://npcs/speach_collider.tscn" id="2_jw13l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s7ott"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vpcec"]
+radius = 26.0
+
+[node name="Witch" type="CharacterBody2D"]
+script = ExtResource("1_bkpuh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_7syi7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_s7ott")
+
+[node name="SpeachCollider" parent="." instance=ExtResource("2_jw13l")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeachCollider"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_vpcec")
