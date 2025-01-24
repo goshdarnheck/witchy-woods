@@ -15,49 +15,61 @@ var convo = {
 		"text": "umm...",
 		"responses": [
 			{
-				"text": "another question",
-				"next": "q2"
+				"text": "Yes!",
+				"next": "magicyes"
 			},
 			{
-				"text": "a response",
-				"next": "test"
+				"text": "I'm not sure...",
+				"next": "magicmaybe"
 			},
 			{
-				"text": "Loop!",
+				"text": "Pardon?",
 				"next": "magic",
 				"end": true
 			},
 			{
-				"text": "Exit!",
+				"text": "...",
 				"next": null,
 				"end": true
 			}
 		]
 	},
-	"q2": {
+	"magicyes": {
 		"name": displayName,
 		"image": "witch.png",
-		"text": "TEST",
+		"text": "Cool!",
 		"end": true
 	},
-	"test": {
+	"magicmaybe": {
 		"name": displayName,
 		"image": "witch.png",
-		"text": "Well",
+		"text": "You should try!",
 		"responses": [
 			{
-				"text": "another question",
-				"next": "q2"
+				"text": "Okay!",
+				"next": "goodluck"
 			},
 			{
-				"text": "a response",
-				"next": "test"
+				"text": "I'm scared",
+				"next": "scared"
 			},
 			{
-				"text": "Exit!",
+				"text": "...",
 				"next": null,
 				"end": true
 			}
 		]
 	},
+	"goodluck": {
+		"name": displayName,
+		"image": "witch.png",
+		"text": "Good luck!",
+		"end": true
+	},
+	"scared": {
+		"name": displayName,
+		"image": "witch.png",
+		"text": "Don't be scared!",
+		"end": true
+	}
 }
