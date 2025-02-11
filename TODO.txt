@@ -1,5 +1,4 @@
 - Should be SPEECH not SPEACH lol
-- 3rd response
-- response that leads to another
-- response that ends & properly sets "next"
 - change equip
+- pickups
+- chests!!!

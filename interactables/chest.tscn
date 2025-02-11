@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmelew48i54e7"]
+
+[ext_resource type="Script" path="res://interactables/chest.gd" id="1_xv5kw"]
+[ext_resource type="Texture2D" uid="uid://n3f7hi5haa2m" path="res://textures/chest.png" id="2_hx5vq"]
+[ext_resource type="Texture2D" uid="uid://baea2a1fwy41d" path="res://textures/enter.png" id="3_rtifb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lj33x"]
+size = Vector2(28, 28)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jk40d"]
+radius = 36.0139
+
+[node name="Chest" type="Area2D"]
+script = ExtResource("1_xv5kw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_hx5vq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_lj33x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jk40d")
+
+[node name="EnterIcon" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_rtifb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

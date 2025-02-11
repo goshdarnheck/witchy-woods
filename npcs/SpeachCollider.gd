@@ -1,6 +1,7 @@
 extends Area2D
 
 var entered = false;
+var callback = null;
 var parent = null;
 var end = false;
 var giving_items = false;
@@ -19,6 +20,11 @@ func showCurrentSpeech():
 	if giving_items:
 		Manager.dismiss_items();
 		giving_items = false;
+
+	if callback:
+		parent.call(callback);
+		callback = null;
+
 	if end == true:
 		end = false;
 		Manager.speech_bubble_close();
@@ -36,8 +42,12 @@ func showCurrentSpeech():
 
 		if "next" in speech:
 			parent.current = speech["next"];
+
 		if "end" in speech and speech.end == true:
 			end = true;
+
+		if "callback" in speech:
+			callback = speech.callback;
 
 func _gen_buttons(responses):
 	var buttons = [];
@@ -49,7 +59,6 @@ func _gen_buttons(responses):
 		buttons.append(button);
 	return buttons
 
-#this code and the code in action key should share a func!
 func _button_pressed(index):
 	var speech = parent.convo[parent.current];
 	var choice = speech.responses[index];

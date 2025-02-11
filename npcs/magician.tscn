@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dv50cfvsi263x"]
+
+[ext_resource type="Script" path="res://npcs/magician.gd" id="1_v8wus"]
+[ext_resource type="Texture2D" uid="uid://cni72ou26d1rv" path="res://textures/magician.png" id="1_wo3rh"]
+[ext_resource type="PackedScene" uid="uid://djgmry63tdq7d" path="res://npcs/speach_collider.tscn" id="2_5hjxr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5rq1p"]
+radius = 8.06226
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gh8i0"]
+radius = 21.0238
+
+[node name="Magician" type="CharacterBody2D"]
+script = ExtResource("1_v8wus")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_5rq1p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_wo3rh")
+
+[node name="SpeachCollider" parent="." instance=ExtResource("2_5hjxr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeachCollider"]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_gh8i0")
