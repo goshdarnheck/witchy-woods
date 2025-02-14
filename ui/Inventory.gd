@@ -18,9 +18,15 @@ func set_inventory_list(inventory):
 	for cat in inventory:
 		for item in inventory[cat]:
 			var instance = item_scene.instantiate();
-			instance.find_child("Name").text = item.name;
-			instance.find_child("Icon").texture = load("res://textures/" + item.image);
+			
+			if ("name" in item):
+				instance.find_child("Name").text = item.name;
+				instance.find_child("Icon").texture = load("res://textures/" + item.image);
+			else:
+				instance.find_child("Name").text = item.item_name;
+				instance.find_child("Icon").texture = item.sprite;
 			node.add_child(instance);
+			print(item.type)
 
 func set_equip(type, item):
 	if item and "type" in item and type == item.type:

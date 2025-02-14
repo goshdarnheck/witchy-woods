@@ -7,6 +7,7 @@ var items = {
 	"cloaks": [],
 	"boots": [],
 	"wands": [],
+	"orbs": []
 }
 
 func _init():
@@ -25,6 +26,8 @@ func add_item(item):
 		items.boots.append(item);
 	if (item.type == "cloak"):
 		items.cloaks.append(item);
+	if (item.type == "orb"):
+		items.orbs.append(item);
 
 func get_items():
 	return items;

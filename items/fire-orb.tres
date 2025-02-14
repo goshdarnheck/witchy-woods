@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d26vxpgwopa48" path="res://textures/orb-fire.png" id="2_tg6jl"]
 
 [resource]
+resource_name = "fireorbname"
 script = ExtResource("1_nctjc")
+type = "orb"
 item_name = "Fire Orb"
 sprite = ExtResource("2_tg6jl")

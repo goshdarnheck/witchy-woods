@@ -3,6 +3,7 @@ extends Area2D
 var entered = false;
 # item resource as export?
 # @export var item: String;
+@export var item: Resource;
 
 func _ready():
 	$EnterIcon.visible = false;
@@ -12,6 +13,9 @@ func _process(delta):
 	
 	if entered && actionKey:
 		print("OPEN CHEST")
+		if item:
+			print(item)
+			Manager.inventory.add_items([item]);
 
 func _on_body_entered(body):
 	if "player" in body:
