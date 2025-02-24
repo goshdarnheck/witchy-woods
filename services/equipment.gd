@@ -19,15 +19,15 @@ func equip_items(items):
 		equip_item(item);
 
 func equip_item(item):
-	if (item and item.type):
+	if (item and "type" in item):
 		match item.type:
-			"hat":
+			enums.ITEM_TYPE.HAT:
 				equipped.hat = item;
-			"cloak":
+			enums.ITEM_TYPE.CLOAK:
 				equipped.cloak = item;
-			"boots":
+			enums.ITEM_TYPE.BOOTS:
 				equipped.boots = item;
-			"wand":
+			enums.ITEM_TYPE.WAND:
 				equipped.wand = item;
 
 func get_items():

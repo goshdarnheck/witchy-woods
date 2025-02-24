@@ -1,10 +1,10 @@
 extends Control
 
 func setContent(content):
-	set_equip("hat", content.equipment.hat);
-	set_equip("cloak", content.equipment.cloak);
-	set_equip("boots", content.equipment.boots);
-	set_equip("wand", content.equipment.wand);
+	set_equip(enums.ITEM_TYPE.HAT, content.equipment.hat, "hat");
+	set_equip(enums.ITEM_TYPE.CLOAK, content.equipment.cloak, "cloak");
+	set_equip(enums.ITEM_TYPE.BOOTS, content.equipment.boots, "boots");
+	set_equip(enums.ITEM_TYPE.WAND, content.equipment.wand, "wand");
 	
 	set_inventory_list(content.inventory);
 
@@ -26,14 +26,13 @@ func set_inventory_list(inventory):
 				instance.find_child("Name").text = item.item_name;
 				instance.find_child("Icon").texture = item.sprite;
 			node.add_child(instance);
-			print(item.type)
 
-func set_equip(type, item):
+func set_equip(type, item, typeName):
 	if item and "type" in item and type == item.type:
-		if "name" in item:
-			find_child(type + "Name").text = item.name;
-		if "image" in item:
-			find_child(type + "Image").texture = load("res://textures/" + item.image);
+		if "item_name" in item:
+			find_child(typeName + "Name").text = item.item_name;
+		if "sprite" in item:
+			find_child(typeName + "Image").texture = item.sprite;
 	else:
-		find_child(type + "Name").text = "None";
-		find_child(type + "Image").texture = load("res://textures/x-16.png");
+		find_child(typeName + "Name").text = "None";
+		find_child(typeName + "Image").texture = load("res://textures/x-16.png");

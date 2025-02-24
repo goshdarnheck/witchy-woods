@@ -2,9 +2,13 @@ extends Control
 
 var nameNode = null;
 var studySelected = "fire"
+var hat;
+var boots;
 
 func _ready():
 	nameNode = get_node("Name/Input");
+	hat = load("res://items/straw-hat.tres");
+	boots = load("res://items/leather-boots.tres");
 
 func _on_awaken_button_pressed():
 	var character_choices = {
@@ -12,23 +16,7 @@ func _on_awaken_button_pressed():
 		"study": studySelected
 	}
 
-	var hat = {
-		"type": "hat",
-		"name": "Straw Hat",
-		"image": "novice-plant-hat.png"
-	};
-	
-	var cloak = {
-		"type": "cloak",
-		"name": "Novice Plant Cloak",
-		"image": "novice-plant-cloak.png"
-	};
-	
-	var boots = {
-		"type": "boots",
-		"name": "Novice Boots",
-		"image": "novice-boots.png"
-	};
+	var cloak = load("res://items/novice-plant-cloak.tres");
 	
 	Manager.inventory.add_items([hat, cloak, boots]);
 	Manager.equipment.equip_items([hat, cloak, boots]);

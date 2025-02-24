@@ -6,6 +6,6 @@
 [resource]
 resource_name = "fireorbname"
 script = ExtResource("1_nctjc")
-type = "orb"
+type = 5
 item_name = "Fire Orb"
 sprite = ExtResource("2_tg6jl")

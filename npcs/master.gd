@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+const stickwandres = preload("res://items/stick-wand.tres");
+var stickwand = stickwandres.duplicate()
+
 var displayName = "Old Magician";
 var current = "takethese";
 var image = "master.png";
@@ -12,11 +15,7 @@ var convo = {
 	},
 	"give_items": {
 		"items":[
-			{
-				"type": "wand",
-				"name": "Stick Wand",
-				"image": "stick-wand.png"
-			}
+			stickwand
 		],
 		"next": "why"
 	},

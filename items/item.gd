@@ -1,7 +1,9 @@
 class_name Item
 extends Resource
 
-@export var type: String = '';
+#enum ITEM_TYPE  { HAT, CLOAK, BOOTS, WAND, RING, ORB, POTION, MISC }
+
+@export var type: enums.ITEM_TYPE;
 @export var item_name: String = '';
 @export var sprite: Texture = Texture.new();
 

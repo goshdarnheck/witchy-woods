@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cmguxq3lw3xdq"]
+
+[ext_resource type="Script" path="res://items/item.gd" id="1_t8g6b"]
+[ext_resource type="Texture2D" uid="uid://ck24q7on0i1vf" path="res://textures/stick-wand.png" id="2_tjrpx"]
+
+[resource]
+script = ExtResource("1_t8g6b")
+type = 3
+item_name = "Stick Wand!"
+sprite = ExtResource("2_tjrpx")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxckyo52wne1h"
-path="res://.godot/imported/novice-boots.png-713358f6018c7fb3d3ef0686927d2454.ctex"
+uid="uid://iuk5lkwif0jb"
+path="res://.godot/imported/straw-hat.png-43999780e79d4946f42f98c452bbabf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/novice-boots.png"
-dest_files=["res://.godot/imported/novice-boots.png-713358f6018c7fb3d3ef0686927d2454.ctex"]
+source_file="res://textures/straw-hat.png"
+dest_files=["res://.godot/imported/straw-hat.png-43999780e79d4946f42f98c452bbabf1.ctex"]
 
 [params]
 
