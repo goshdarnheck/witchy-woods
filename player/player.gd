@@ -4,7 +4,9 @@ var speed = 300;  # speed in pixels/sec
 var player = true;
 
 func _ready():
-	$Sprite.texture = load("res://textures/" + Manager.character.study + "-player.png");
+	$cloakSprite.texture  = Manager.equipment.equipped.cloak.sprite;
+	$hatSprite.texture  = Manager.equipment.equipped.hat.sprite;
+	$bootsSprite.texture  = Manager.equipment.equipped.boots.sprite;
 
 func _process(delta):
 	pass
