@@ -114,6 +114,9 @@ texture = ExtResource("3_neiad")
 layout_mode = 2
 text = "None"
 
+[node name="Button" type="Button" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/BootsPanel"]
+layout_mode = 2
+
 [node name="WandPanel" type="PanelContainer" parent="HBoxContainer/Equipment/VBoxContainer/Equipment"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_6ifre")
@@ -184,3 +187,5 @@ layout_mode = 2
 
 [node name="InvItem" parent="HBoxContainer/Player/HBoxContainer/ScrollContainer/Items" instance=ExtResource("5_007qe")]
 layout_mode = 2
+
+[connection signal="button_up" from="HBoxContainer/Equipment/VBoxContainer/Equipment/BootsPanel/Button" to="." method="_on_boots_button_up"]

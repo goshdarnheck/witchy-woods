@@ -16,7 +16,7 @@ func _on_awaken_button_pressed():
 		"study": studySelected
 	}
 
-	var cloak = load("res://items/novice-plant-cloak.tres");
+	var cloak = load("res://items/novice-"+studySelected+"-cloak.tres");
 	
 	Manager.inventory.add_items([hat, cloak, boots]);
 	Manager.equipment.equip_items([hat, cloak, boots]);

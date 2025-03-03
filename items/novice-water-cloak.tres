@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bhfc2ho8gqtcn"]
+
+[ext_resource type="Script" path="res://items/item.gd" id="1_n1pa2"]
+[ext_resource type="Texture2D" uid="uid://7bwphpj2ou5g" path="res://textures/novice-water-cloak.png" id="2_12yvv"]
+
+[resource]
+script = ExtResource("1_n1pa2")
+type = 1
+item_name = "Novice Water Cloak"
+sprite = ExtResource("2_12yvv")

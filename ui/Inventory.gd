@@ -1,5 +1,7 @@
 extends Control
 
+var selected_category = null;
+
 func setContent(content):
 	set_equip(enums.ITEM_TYPE.HAT, content.equipment.hat, "hat");
 	set_equip(enums.ITEM_TYPE.CLOAK, content.equipment.cloak, "cloak");
@@ -36,3 +38,8 @@ func set_equip(type, item, typeName):
 	else:
 		find_child(typeName + "Name").text = "None";
 		find_child(typeName + "Image").texture = load("res://textures/x-16.png");
+
+
+func _on_boots_button_up():
+	print("BOOOOOTS")
+	pass # Replace with function body.

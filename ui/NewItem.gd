@@ -5,9 +5,9 @@ func setContent(items):
 		if "item_name" in item:
 			find_child("Name").text = item.item_name
 		else:
-			print("missing name")
+			print("new item overlay: missing name")
 	
 		if "sprite" in item:
 			find_child("Image").texture = item.sprite;
 		else:
-			print("missing image")
+			print("new item overlay: missing image")

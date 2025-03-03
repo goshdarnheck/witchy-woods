@@ -75,7 +75,7 @@ func _button_pressed(index):
 func _give_items(items):
 	giving_items = true;
 	Manager.speech_bubble_close();
-	Manager.inventory.add_item(items[0]);
+	Manager.inventory.add_items(items);
 	Manager.show_items(items);
 
 func _on_body_entered(body):
