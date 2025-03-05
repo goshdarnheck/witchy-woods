@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvkdi1n2nx8pd"]
+[gd_scene load_steps=16 format=3 uid="uid://dvkdi1n2nx8pd"]
 
 [ext_resource type="Script" path="res://levels/beginning.gd" id="1_b8ycq"]
 [ext_resource type="Texture2D" uid="uid://r1n4y0qp7bw4" path="res://textures/tileset.png" id="2_a3sk1"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dv50cfvsi263x" path="res://npcs/magician.tscn" id="10_6gqqc"]
 [ext_resource type="PackedScene" uid="uid://cmelew48i54e7" path="res://interactables/chest.tscn" id="11_kv6si"]
 [ext_resource type="Resource" uid="uid://d3wiblrwwkap8" path="res://items/fire-orb.tres" id="12_60fbc"]
+[ext_resource type="PackedScene" uid="uid://bsxtrljah27id" path="res://interactables/coin.tscn" id="13_eoaxn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7et4y"]
 resource_name = "ground"
@@ -253,3 +254,6 @@ position = Vector2(8, 158)
 [node name="Chest" parent="." instance=ExtResource("11_kv6si")]
 position = Vector2(241, 167)
 item = ExtResource("12_60fbc")
+
+[node name="Coin" parent="." instance=ExtResource("13_eoaxn")]
+position = Vector2(92, 115)

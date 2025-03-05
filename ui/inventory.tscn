@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4kq6w0a3clwt"]
+[gd_scene load_steps=9 format=3 uid="uid://c4kq6w0a3clwt"]
 
 [ext_resource type="Script" path="res://ui/Inventory.gd" id="1_4k2u2"]
 [ext_resource type="StyleBox" uid="uid://bkauimjeafhoj" path="res://ui/bits/panel-style.tres" id="2_6ifre"]
@@ -12,6 +12,11 @@ expand_margin_left = 10.0
 expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhlx4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxuod"]
+bg_color = Color(0, 0, 0, 0.0784314)
 
 [node name="Inventory" type="PanelContainer"]
 anchors_preset = 15
@@ -116,6 +121,8 @@ text = "None"
 
 [node name="Button" type="Button" parent="HBoxContainer/Equipment/VBoxContainer/Equipment/BootsPanel"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bhlx4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kxuod")
 
 [node name="WandPanel" type="PanelContainer" parent="HBoxContainer/Equipment/VBoxContainer/Equipment"]
 layout_mode = 2
