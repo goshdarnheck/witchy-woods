@@ -11,6 +11,8 @@ var ui = "INTRO";
 
 # BIG STATE I GUESS
 var paused = false;
+var speaking = false;
+var showing_item = false;
 
 # player state, more detailed game state here? how do you make a game?
 var character = {
@@ -37,7 +39,7 @@ func _input(event):
 
 	var inventoryKey = Input.is_action_just_pressed("inventory");
 	
-	if inventoryKey:
+	if inventoryKey and !speaking and !showing_item:
 		if Overlay.find_child("Inventory").visible:
 			Overlay.find_child("Inventory").visible = false;
 			_unpause();
@@ -67,20 +69,24 @@ func load_stage(stageName):
 		_load_ui("overworld");
 
 func speech_bubble(content):
+	speaking = true;
 	_pause();
 	Overlay.find_child("Speechbubble").setContent(content);
 	Overlay.find_child("Speechbubble").visible = true;
 
 func speech_bubble_close():
+	speaking = false;
 	Overlay.find_child("Speechbubble").visible = false;
 	_unpause();
 
 func show_items(items):
+	showing_item = true;
 	_pause();
 	Overlay.find_child("NewItem").setContent(items);
 	Overlay.find_child("NewItem").visible = true;
 
 func dismiss_items():
+	showing_item = false;
 	_unpause();
 	Overlay.find_child("NewItem").visible = false;
 
