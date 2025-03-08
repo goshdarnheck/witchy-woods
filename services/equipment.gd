@@ -30,5 +30,5 @@ func equip_item(item):
 			enums.ITEM_TYPE.WAND:
 				equipped.wand = item;
 
-func get_items():
+func get_equipped_items():
 	return equipped;

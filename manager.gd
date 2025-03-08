@@ -43,7 +43,7 @@ func _input(event):
 			_unpause();
 		else:
 			_pause();
-			Overlay.find_child("Inventory").setContent({ "inventory": inventory.get_items(), "equipment": equipment.get_items() });
+			Overlay.find_child("Inventory").update();
 			Overlay.find_child("Inventory").visible = true;
 
 func _pause():
